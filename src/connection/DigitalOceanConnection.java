@@ -5,7 +5,7 @@ import kong.unirest.UnirestInstance;
 
 public class DigitalOceanConnection {
     private static DigitalOceanConnection connection = null;
-    private final String RESTURL = "http://localhost:8080/";
+    private final String RESTURL = "http://localhost:8080/"; //ToDo: Ændr til korrekt link efter deployment
     private static UnirestInstance unirest;
 
     private DigitalOceanConnection() {
@@ -13,7 +13,7 @@ public class DigitalOceanConnection {
         unirest.config()
                 .addShutdownHook(true)
                 .setDefaultHeader("Accept", "application/json")
-                .setDefaultHeader("Content-Type", "application/json")
+                .setDefaultHeader("Content-Type", "application/json") //ToDo: Tilføj autorization header til egen brugeraut, når det er implementeret.
                 .defaultBaseUrl(RESTURL);
     }
 
