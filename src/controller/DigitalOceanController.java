@@ -14,11 +14,13 @@ import java.rmi.RemoteException;
 import java.util.Scanner;
 
 public class DigitalOceanController {
-    Scanner input = new Scanner(System.in);
+    Scanner input;
     private DigitalOceanConnection conn = DigitalOceanConnection.getInstance();
-
     private boolean isAuthorized = false;
 
+    public DigitalOceanController(Scanner scanner) {
+        input = scanner;
+    }
 
     public Droplet[] getDroplets() {
         if (isAuthorized) {
@@ -31,23 +33,17 @@ public class DigitalOceanController {
     public void authorize() throws RemoteException, NotBoundException, MalformedURLException {
         Brugeradmin ba = (Brugeradmin) Naming.lookup("rmi://javabog.dk/brugeradmin");
 
-        System.out.println("username: ");
+        System.out.println("Username: ");
         String username = input.nextLine();
-        System.out.println("password: ");
+        System.out.println("Password: ");
         String password = input.nextLine();
-
 
         try {
             Bruger user = ba.hentBruger(username, password);
-
             isAuthorized = true;
-
-
-            System.out.println("user authorized!");
-
-
+            System.out.println("User authorized!");
         } catch (Exception e) {
-            System.out.println("user not authorized. Please try again.");
+            System.out.println("User not authorized. Please try again.");
             authorize();
         }
 

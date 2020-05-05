@@ -24,7 +24,7 @@ public class Droplet {
 
     @Override
     public String toString() {
-        return String.format("Name: %s | Created: %s | IPv4: %s | Status: %s | Price monthly/hourly: %s$ / %s$", name, created_at, networks.v4[0].ip_address, status, size.price_monthly, size.price_hourly);
+        return String.format("%-20.20s | %-29.29s | %-17.17s | %-9.9s | %s$ / %s$", name, created_at, networks.v4[0].ip_address, status, size.price_monthly, size.price_hourly);
     }
 
     class Kernel {
@@ -45,9 +45,9 @@ public class Droplet {
         double size_gigabytes;
     }
 
-    class Size {
-        String price_monthly;
-        String price_hourly;
+    public class Size {
+        public String price_monthly;
+        public String price_hourly;
     }
 
     class v4 {
