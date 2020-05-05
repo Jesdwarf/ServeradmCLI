@@ -1,9 +1,18 @@
 package com.gr9001;
 
+import kong.unirest.*;
+
 public class Main {
-
     public static void main(String[] args) {
+        UnirestInstance unirest;
 
-	// write your code here
+        unirest = Unirest.spawnInstance();
+        unirest.config()
+                .addShutdownHook(true) // TODO: check perfomance vs manual shutdown
+                .setDefaultHeader("Accept", "application/json")
+                .setDefaultHeader("Content-Type", "application/json")
+                .defaultBaseUrl("http://localhost:8080/");
+
+
     }
 }
