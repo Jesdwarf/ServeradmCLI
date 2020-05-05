@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import java.util.Date;
 
@@ -21,6 +21,11 @@ public class Droplet {
     public Networks networks;
     public Region region;
     public String vpc_uuid;
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s | Created: %s | IPv4: %s | Status: %s | Price monthly/hourly: %s$ / %s$", name, created_at, networks.v4[0].ip_address, status, size.price_monthly, size.price_hourly);
+    }
 
     class Kernel {
         int id;
