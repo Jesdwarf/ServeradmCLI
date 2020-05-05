@@ -1,26 +1,26 @@
-package com.gr9001.Models;
+package models;
 
 import java.util.Date;
 
 public class Droplet {
-    int id;
-    String name;
-    int memory;
-    int vcpus;
-    int disk;
-    boolean locked;
-    String status;
-    Kernel kernel;
-    Date created_at;
-    String[] features;
+    public int id;
+    public String name;
+    public int memory;
+    public int vcpus;
+    public int disk;
+    public boolean locked;
+    public String status;
+    public Kernel kernel;
+    public Date created_at;
+    public String[] features;
 
-    int[] snapshot_ids;
-    Image image;
-    Size size;
-    String size_slug;
-    Networks networks;
-    Region region;
-    String vpc_uuid;
+    public int[] snapshot_ids;
+    public Image image;
+    public Size size;
+    public String size_slug;
+    public Networks networks;
+    public Region region;
+    public String vpc_uuid;
 
     class Kernel {
         int id;
@@ -37,7 +37,7 @@ public class Droplet {
         Date created_at;
         String type;
         int min_disk_size;
-        int size_gigabytes;
+        double size_gigabytes;
     }
 
     class Size {

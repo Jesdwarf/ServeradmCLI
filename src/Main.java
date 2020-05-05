@@ -1,8 +1,6 @@
-package com.gr9001;
-
 import com.google.gson.Gson;
-import com.gr9001.Models.Droplet;
 import kong.unirest.*;
+import models.Droplets;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,12 +13,9 @@ public class Main {
                 .setDefaultHeader("Content-Type", "application/json")
                 .defaultBaseUrl("http://localhost:8080/");
 
+        Droplets droplets = new Gson().fromJson(unirest.get("digitalocean/droplets").asJson().getBody().toString(), Droplets.class);
 
-        Droplet[] droplets = new Gson().fromJson(unirest.get("digitalocean/droplets").asJson().getBody().toString(), Droplet[].class);
-
-
-        System.out.println(droplets.toString());
-
+        System.out.println(droplets.droplets[0].name);
 
     }
 }
