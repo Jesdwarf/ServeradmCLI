@@ -13,6 +13,7 @@ public class Main {
                 .setDefaultHeader("Content-Type", "application/json")
                 .defaultBaseUrl("http://localhost:8080/");
 
+        System.out.println(unirest.get("digitalocean/droplets").asJson().getBody());
 
     }
 }
