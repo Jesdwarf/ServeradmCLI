@@ -13,7 +13,9 @@ public class DigitalOceanConnection {
         unirest.config()
                 .addShutdownHook(true)
                 .setDefaultHeader("Accept", "application/json")
-                .setDefaultHeader("Content-Type", "application/json") //ToDo: Tilføj autorization header til egen brugeraut, når det er implementeret.
+                .setDefaultHeader("Content-Type", "application/json")
+                .setDefaultHeader("API-Key", "") //ToDo: Indsæt selv pga. sikkerhed.
+                .setDefaultBasicAuth("SouthStruds", "MalteMalte")
                 .defaultBaseUrl(RESTURL);
     }
 
